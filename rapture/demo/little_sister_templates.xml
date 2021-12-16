@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <record id="little_sister_Amelie" model="rapture.little_sister">
+        <field name="name">Amelie</field>
+        </record>
+
+        <record id="little_sister_Agnes" model="rapture.little_sister">
+        <field name="name">Agnes</field>
+        </record>
+
+        <record id="little_sister_Bambi" model="rapture.little_sister">
+        <field name="name">Bambi</field>
+        </record>
+
+        <record id="little_sister_Buffy" model="rapture.little_sister">
+        <field name="name">Buffy</field>
+        </record>
+
+        <record id="little_sister_Charis" model="rapture.little_sister">
+        <field name="name">Charis</field>
+        </record>       
+    </data>
+</odoo>

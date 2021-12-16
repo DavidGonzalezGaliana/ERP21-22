@@ -1,0 +1,79 @@
+<odoo>
+    <data>
+        <record id="rapture.b_t_Cyclone" model="rapture.plasmid">
+        <field name="name">Cyclone Trap</field>
+        </record>
+
+        <record id="rapture.b_t_Electro" model="rapture.plasmid">
+        <field name="name">Electro Bolt</field>
+        </record>
+
+        <record id="rapture.b_t_Enrage" model="rapture.plasmid">
+        <field name="name">Enrage</field>
+        </record>
+
+        <record id="rapture.b_t_Hypnotize" model="rapture.plasmid">
+        <field name="name">Hypnotize Big Daddy</field>
+        </record>
+
+        <record id="rapture.b_t_Incinerate" model="rapture.plasmid">
+        <field name="name">Incinerate</field>
+        </record>
+
+        <record id="rapture.b_t_Insect" model="rapture.plasmid">
+        <field name="name">Insect Swarm"</field>
+        </record>
+
+        <record id="rapture.b_t_Security" model="rapture.plasmid">
+        <field name="name">Security Bullseye"</field>
+        </record>
+
+        <record id="rapture.b_t_Sonic" model="rapture.plasmid">
+        <field name="name">Sonic Boom"</field>
+        </record>
+
+        <record id="rapture.b_t_Target" model="rapture.plasmid">
+        <field name="name">Target Dummy"</field>
+        </record>
+
+        <record id="rapture.b_t_Telekinesis" model="rapture.plasmid">
+        <field name="name">Telekinesis"</field>
+        </record>
+
+        <record id="rapture.b_t_Winter" model="rapture.plasmid">
+        <field name="name">Winter Blast</field>
+        </record>
+
+        <record id="rapture.b_t_Aggressor" model="rapture.plasmid">
+        <field name="name">Aggressor Irritant</field>
+        </record>
+
+        <record id="rapture.b_t_Parasitic" model="rapture.plasmid">
+        <field name="name">Parasitic Healing</field>
+        </record>
+
+        <record id="rapture.b_t_Sanctuary" model="rapture.plasmid">
+        <field name="name">Sanctuary</field>
+        </record>
+
+        <record id="rapture.b_t_Speed" model="rapture.plasmid">
+        <field name="name">Speed Booster</field>
+        </record>
+
+        <record id="rapture.b_t_Teleportation" model="rapture.plasmid">
+        <field name="name">Teleportation</field>
+        </record>
+
+    </data>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+

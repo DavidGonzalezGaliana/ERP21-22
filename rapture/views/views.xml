@@ -1,34 +1,314 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="rapture.list">
+
+    <record model="ir.ui.view" id="rapture.player_list">
       <field name="name">rapture list</field>
-      <field name="model">rapture.rapture</field>
+      <field name="model">rapture.player</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="photo" widget="image"></field>
           <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+          <field name="plasmids"/>
         </tree>
       </field>
     </record>
--->
+
+
+      <record model="ir.ui.view" id="rapture.player_form">
+      <field name="name">rapture form</field>
+      <field name="model">rapture.player</field>
+      <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="photo" widget="image"></field>
+          </group>
+
+
+          <notebook>
+            <page name="player" string="Player">
+             <group>
+              <field name="name"/>
+              <field name="birthplace"/>
+              <field name="gender"/>
+              <field name="year_of_birth"/>
+             </group>
+
+            </page>
+
+
+            <page name="atributes" string="Atributes">
+              <group>
+                <field name="hunger"/>
+                <field name="sanity"/>
+                <field name="oxygen_consumption"/>
+              </group>
+            </page>
+
+            <page name="plasmids" string="Plasmids">
+              <group>
+                <field name="plasmids"/>
+               
+              </group>
+            </page>
+
+
+            <page name="big_daddy" string="Big Daddy">
+              <group>
+                <field name="big_daddys"/>
+                <field name="total_adam"/>
+                
+              </group>
+            </page>
+          </notebook>               
+         </sheet>
+       </form>
+      
+      </field>
+    </record>
+
+
+
+
+
+    <record model="ir.ui.view" id="rapture.district_list">
+      <field name="name">rapture list</field>
+      <field name="model">rapture.district</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="space"/>
+          <field name="total_adam"/>
+          <field name="widget_time" widget="progressbar" />
+
+        </tree>
+      </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="rapture.big_daddy_list">
+      <field name="name">big daddy list</field>
+      <field name="model">rapture.big_daddy</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="player"/>
+
+          <field name="little_sister" widget="many2many_tags" />
+
+        </tree>
+      </field>
+    </record>
+
+
+ 
+
+ <record model="ir.ui.view" id="rapture.district_form">
+            <field name="name">rapture district Form</field>
+            <field name="model">rapture.district</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                   </header>
+            
+
+                    <sheet>
+                        <group>
+                           <group>
+                <field name="photo" widget="image"></field>
+              </group>
+                         <notebook>
+                        <page name="district" string="District">  
+                          <group>
+                          <field name="name" />
+                           
+                            <field name="space" />
+                            <field name="sanity_population" attrs="{'readonly': [('total_population_district', '>', 0)]}"/>
+                            <field name="total_oxygen_district" />
+                            <field name="total_population_district" />
+                            <field name="total_population_consumption"  attrs="{'readonly': [('total_population_district', '>', 0)]}"/>
+                            <field name="total_adam"/>
+                            <field name="total_adam_district"/>
+                            <field name="npcs" />
+                            <field name="player" />
+                        </group>
+                       </page>
+                         <page name="state" string="State">
+                          <group>
+                              <field name="start" />
+                              <field name="time_to_end" />
+                              <field name="widget_time" widget="progressbar" />
+                          </group>
+                          </page>
+                    </notebook>  
+                </group>
+                  </sheet>
+                   
+                </form>
+            </field>
+        </record>
+
+
+        
+
+
+
+
+
+
+
+  <record model="ir.ui.view" id="rapture.npc_kanban">
+            <field name="name">Rapture npc kanban</field>
+            <field name="model">rapture.npc</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name" />
+                    <field name="health" />
+                    <field name="hunger" />
+                    <field name="sanity" />
+                    <field name="oxygen_consumption" />
+                    <field name="gender"/>
+                    <field name="npc_reside"/>
+                    <templates>
+                        <t t-name="kanban-box">                              
+                                    <div class="oe_kanban_details d-flex flex-column">
+                                        <a type="open"><h4 class="o_kanban_record_title oe_partner_heading"><field name="name"/></h4></a>
+                                        <ul>
+                                            <li>Nombre: <field name="name"/></li>
+                                            <li>Vida: <field name="health"/></li>
+                                            <li>Hambre: <field name="hunger"/></li>
+                                            <li>Consumo de Oxigeno: <field name="oxygen_consumption"/></li>
+                                            <li>Reside: <field name="npc_reside"/></li>
+                                            
+                                        </ul>
+                                    </div>                                
+                            
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+
+
+
+        <record model="ir.ui.view" id="rapture.player_kanban">
+            <field name="name">Rapture player kanban</field>
+            <field name="model">rapture.player</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id" />
+                    <field name="photo" />
+                    <field name="name" />
+                    <field name="health" />
+                    <field name="total_adam" />
+                    <field name="district" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_product_vignette">
+                                <a type="open">
+                                    <img class="oe_kanban_image"
+                                        t-att-alt="record.name.value"
+                                        t-att-src="kanban_image('rapture.player', 'photo', record.id.value)"/>
+                                      
+                                    </a>
+                                    <div class="oe_kanban_details d-flex flex-column">
+                                        <h4 class="o_kanban_record_title oe_partner_heading"><field name="name"/></h4>
+
+                                        <ul>
+                                            <li>Vida: <field name="health"/></li>
+                                            <li>total_adam: <field name="total_adam"/></li>
+                                        </ul>
+                                    </div>
+
+                            </div>
+
+
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+
+      <record model="ir.ui.view" id="rapture.calendar_dirapture_calendar_districtstrict">
+            <field name="name">district.calendar</field>
+            <field name="model">rapture.district</field>
+            <field name="arch" type="xml">
+                <calendar string="Session Calendar" date_start="start" date_stop="time_to_end" color="name">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- actions opening views on models -->
 
-    <record model="ir.actions.act_window" id="rapture.action_window">
+    <record model="ir.actions.act_window" id="rapture.calendar_district_action_window">
+      <field name="name">calendar window</field>
+      <field name="res_model">rapture.district</field>
+      <field name="view_mode">calendar</field>
+    </record>
+
+
+  <record model="ir.actions.act_window" id="rapture.action_window">
       <field name="name">rapture window</field>
       <field name="res_model">rapture.rapture</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-
       <record model="ir.actions.act_window" id="rapture.player_action_window">
       <field name="name">player window</field>
       <field name="res_model">rapture.player</field>
+      <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+     <record model="ir.actions.act_window" id="rapture.district_action_window">
+      <field name="name">district window</field>
+      <field name="res_model">rapture.district</field>
       <field name="view_mode">tree,form</field>
     </record>
+
+
+
+  <record model="ir.actions.act_window" id="rapture.npc_action_window">
+      <field name="name">npc window</field>
+      <field name="res_model">rapture.npc</field>
+      <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+
+
+  <record model="ir.actions.act_window" id="rapture.plasmid_action_window">
+      <field name="name">plasmid window</field>
+      <field name="res_model">rapture.plasmid</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="rapture.big_daddy_action_window">
+      <field name="name">big_daddy window</field>
+      <field name="res_model">rapture.big_daddy</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
 
 
 
@@ -62,8 +342,34 @@
     <menuitem name="List" id="rapture.menu_1_list" parent="rapture.menu_1"
               action="rapture.action_window"/>
 
-       <menuitem name="Player" id="rapture.menu_player_list" parent="rapture.menu_1"
+    <menuitem name="Player" id="rapture.menu_player_list" parent="rapture.menu_1"
               action="rapture.player_action_window"/>
+
+    <menuitem name="Distrit" id="rapture.menu_district_list" parent="rapture.menu_1"
+              action="rapture.district_action_window"/>
+    
+    <menuitem name="Npc" id="rapture.menu_npc_list" parent="rapture.menu_1"
+              action="rapture.npc_action_window"/>
+
+               <menuitem name="Plasmid" id="rapture.menu_plasmid_list" parent="rapture.menu_1"
+              action="rapture.plasmid_action_window"/>
+
+              <menuitem name="Big_daddy" id="rapture.menu_big_daddy_list" parent="rapture.menu_1"
+              action="rapture.big_daddy_action_window"/>
+
+
+              <menuitem name="Calendar" id="rapture.menu_calendar_list" parent="rapture.menu_1"
+              action="rapture.calendar_district_action_window"/>
+
+
+              
+
+
+
+
+
+
+
     <!-- <menuitem name="Server to list" id="rapture" parent="rapture.menu_2"
               action="rapture.action_server"/> -->
   </data>

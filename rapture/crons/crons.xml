@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data >    
+        <record model="ir.cron" forcecreate="True" id="rapture.cron_oxygen_update">
+            <field name="name">District oxygen update</field>
+            <field name="model_id" ref="model_rapture_district"/>
+            <field name="state">code</field>
+            <field name="code">model.update_oxygen()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="activity_user_type">specific</field>
+            <field name="doall" eval="False" />
+        </record>
+
+    <record model="ir.cron" forcecreate="True" id="rapture.cron_life_npc_update">
+            <field name="name">Npc life update</field>
+            <field name="model_id" ref="model_rapture_npc"/>
+            <field name="state">code</field>
+            <field name="code">model.update_life_npc()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="activity_user_type">specific</field>
+            <field name="doall" eval="False" />
+        </record>
+
+
+        <record model="ir.cron" forcecreate="True" id="rapture.cron_update_adam_production">
+            <field name="name">Adam update</field>
+            <field name="model_id" ref="model_rapture_little_sister"/>
+            <field name="state">code</field>
+            <field name="code">model.update_adam_production()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="activity_user_type">specific</field>
+            <field name="doall" eval="False" />
+        </record>
+
+
+        <record model="ir.cron" forcecreate="True" id="rapture.cron_update_adam_consumption">
+            <field name="name">Adam consumption update</field>
+            <field name="model_id" ref="model_rapture_district"/>
+            <field name="state">code</field>
+            <field name="code">model.update_adam_consumption()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="activity_user_type">specific</field>
+            <field name="doall" eval="False" />
+        </record>
+
+
+    </data>
+
+</odoo>
+
